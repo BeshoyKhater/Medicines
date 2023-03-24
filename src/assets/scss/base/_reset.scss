@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $bestag;
+    height: 5000px;
+    font-family: 'Poppins', sans-serif;
+}
+
+ul,li,a {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $white;
+
+    &:hover {
+        color: $white;
+    }
+}

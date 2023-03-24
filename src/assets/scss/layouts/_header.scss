@@ -1,0 +1,31 @@
+nav {
+    padding: 1rem 0;
+    background-color: $dark-blue;
+
+    .logo {
+        a {
+            font-size: 1.5rem;
+        }
+    }
+
+    .search {
+        position: relative;
+
+        .searchIcon {
+            position: absolute;
+            top: 50%;
+            left: 1.5rem;
+            transform: translateY(-50%);
+            font-size: 20px;
+        }
+
+        input {
+            height: 40px;
+            width: 100%;
+            outline: none;
+            padding-left: 2.8rem;
+            border-radius: .5rem;
+            border: $bestag;
+        }
+    }
+}
