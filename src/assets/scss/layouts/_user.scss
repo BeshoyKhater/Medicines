@@ -1,0 +1,26 @@
+.css-1ka5eyc-MuiPaper-root-MuiMenu-paper-MuiPopover-paper {
+    background-color: $dark-blue !important;
+    border-radius: 1rem !important;
+    width: 17rem !important;
+
+    .menu_item {
+        .box {
+            a {
+                .container_img {
+                    .img {
+                        height: 3rem;
+                        width: 3rem;
+                    }
+                }
+
+                .text {
+                    color: $grey;
+                }
+            }
+        }
+    }
+
+        .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root+.MuiDivider-root {
+            background: $white;
+        }
+}

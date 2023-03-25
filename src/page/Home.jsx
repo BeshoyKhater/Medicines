@@ -4,7 +4,7 @@ import Header from '../components/layout/header/Header'
 function Home() {
   return (
     <>
-        <Header />
+      <Header />
     </>
   )
 }

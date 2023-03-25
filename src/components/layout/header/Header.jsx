@@ -5,6 +5,11 @@ import CartPro from './CartPro';
 import { AiOutlineSearch } from "react-icons/ai"
 
 function Header() {
+      window.addEventListener("scroll",function(){
+        this.scrollTo({behavior: "smooth"})
+        const nav=this.document.querySelector("nav")
+        nav.classList.toggle("active",this.window.scrollY > 100)
+    })
   return (
     <nav>
       <div className="container">

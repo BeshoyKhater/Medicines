@@ -1,6 +1,14 @@
 nav {
     padding: 1rem 0;
     background-color: $dark-blue;
+    box-shadow: 0 2px 4px rgba(0, 0, 0 ,.5);
+
+    &.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
 
     .logo {
         a {
@@ -27,5 +35,10 @@ nav {
             border-radius: .5rem;
             border: $bestag;
         }
+    }
+
+    .account {
+        gap: 1rem;
+        align-items: center;
     }
 }
