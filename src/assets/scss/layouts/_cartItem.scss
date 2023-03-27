@@ -1,0 +1,58 @@
+.card_list {
+    padding: 1rem 2rem;
+    color: $white;
+
+    .cart_content {
+        .img {
+            img {
+                width: 5rem;
+                height: 5rem;
+            }
+        }
+
+        .details {
+            small {
+                color: $grey;
+            }
+            .css-zcbmsk-MuiButtonBase-root-MuiButton-root {
+                padding: 4px 8px;
+                background: $light-black;
+                border-color: $grey;
+            }
+            .css-4myj62-MuiButtonGroup-root .MuiButtonGroup-grouped:not(:last-of-type).Mui-disabled {
+                color: $white;
+                border-color: $grey ;
+            }
+        }
+    }
+
+        .css-1sszw6i-MuiButtonBase-root-MuiButton-root {
+            min-width: 0;
+            padding: 6px;
+        }
+}
+
+.css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+    background-color: $dark-blue !important;
+}
+
+@media screen and (max-width: 778px) {
+    .card_list {
+        padding: 1rem;
+
+        .cart_content {
+            .img {
+                img {
+                    width: 3rem;
+                    height: 4rem;
+                }
+            }
+
+            .details {
+                .css-zcbmsk-MuiButtonBase-root-MuiButton-root {
+                    padding: 0px;
+                }
+            }
+        }
+    }
+}

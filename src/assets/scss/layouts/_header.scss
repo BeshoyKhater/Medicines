@@ -2,6 +2,7 @@ nav {
     padding: 1rem 0;
     background-color: $dark-blue;
     box-shadow: 0 2px 4px rgba(0, 0, 0 ,.5);
+    z-index: 999;
 
     &.active {
         position: fixed;
@@ -38,7 +39,16 @@ nav {
     }
 
     .account {
-        gap: 1rem;
+        gap: 1.5rem;
         align-items: center;
     }
+}
+
+
+@media screen and (max-width: 778px) {
+nav {
+        .search {
+            display: none;
+        }
+}
 }

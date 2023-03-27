@@ -1,0 +1,15 @@
+$colors: (
+    num1: #1773ea,
+    num2: #009deb,
+    num3: #ea4c89,
+    num4: #d62977,
+);
+
+@each $name,
+$color in $colors {
+    .#{$name} {
+        @include icons(50px, 50px, #ff43cb, 18px, 50px, $primary);
+        background: $color;
+        margin: 5px;
+    }
+}

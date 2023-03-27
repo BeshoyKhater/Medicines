@@ -13,15 +13,15 @@ function Header() {
   return (
     <nav>
       <div className="container">
-        <div className="row align-items-center justify-content-evenly">
-          <div className="logo col-md-3">
+        <div className="row align-items-center justify-content-between">
+          <div className="logo col-3">
             <Link to="/">BESHOY</Link>
           </div>
-            <div className="search col-md-6">
+            <div className="search col-6">
                 <AiOutlineSearch className='searchIcon' />
                 <input type="text" placeholder='Search...' />
             </div>
-            <div className="account d-flex justify-content-end col-md-3">
+            <div className="account d-flex justify-content-end col-3">
                 <CartPro />
                 <User />
             </div>

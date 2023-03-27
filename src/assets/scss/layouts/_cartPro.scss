@@ -1,0 +1,54 @@
+.title {
+    color: $white;
+    text-decoration: underline;
+    margin-bottom: 2rem;
+}
+
+    .checkOut {
+        background-color: rgba($color: #0000, $alpha: .7);
+        padding: 1rem;
+        border-radius: 1rem;
+        margin: 2rem;
+        color: $white;
+        position: fixed;
+        bottom: 0;
+    
+        .price {
+            color: $green;
+            margin-left: 1rem;
+        }
+    }
+
+.css-1c32n2y-MuiBadge-root {
+    a {
+        svg {
+            font-size: 1.8rem;
+        }
+    }
+    .css-to4x1n-MuiBadge-badge {
+        background: $bestag;
+        color: $dark-blue;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 778px) {
+    .css-1z13ce1 {
+        width: 300px !important;
+    }
+
+    .checkOut {
+        background-color: rgba($color: #0000, $alpha: .7);
+        padding: .8rem;
+        border-radius: .5rem;
+        margin: 1rem .5rem;
+        color: $white;
+        position: fixed;
+        bottom: 0;
+    
+        .price {
+            color: $green;
+            margin-left: .5rem;
+        }
+    }
+}

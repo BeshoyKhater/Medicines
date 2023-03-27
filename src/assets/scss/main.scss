@@ -1,6 +1,7 @@
 // abstracts
 @import "abstracts/variables",
-        "abstracts/mixins";
+        "abstracts/mixins",
+        "abstracts/function";
 
 
 //base
@@ -9,6 +10,11 @@
 
 
 //components
+    // home
+@import "components/home/gallery",
+        "components/home/order",
+        "components/home/category",
+        "components/home/product";
 
 
 
@@ -16,4 +22,6 @@
 //layouts 
 @import "layouts/header",
         "layouts/user",
+        "layouts/cartPro",
+        "layouts/cartItem",
         "layouts/footer";

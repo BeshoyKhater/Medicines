@@ -1,0 +1,55 @@
+.category {
+    position: relative;
+
+    .container_box {
+        .boxItems {
+            padding: 0;
+            border-radius: 1rem;
+            margin: 5px;
+            p {
+                text-transform: capitalize;
+                font-size: 12px;
+                font-weight: 600;
+                padding: 1rem 0;
+            }
+            img {
+                border-radius: 1rem 1rem 0 0;
+            }
+        }
+    }
+}
+
+/*---------------control-btn-------------*/
+.control-btn button {
+    background: $dark-blue;
+    color: $white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba($color: #000000, $alpha: .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    padding: 2px;
+}
+
+.control-btn .next {
+    position: absolute;
+    top: 40%;
+    right: -10px;
+}
+
+.control-btn .prev {
+    position: absolute;
+    top: 40%;
+    left: -10px;
+    z-index: 99;
+}
+
+.control-btn .icon {
+    font-size: 25px;
+}
+
+/*---------------control-btn-------------*/

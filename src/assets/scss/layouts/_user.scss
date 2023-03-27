@@ -24,3 +24,10 @@
             background: $white;
         }
 }
+
+
+@media screen and (max-width: 778px) {
+.css-1ka5eyc-MuiPaper-root-MuiMenu-paper-MuiPopover-paper {
+        width: 15rem !important;
+    }
+}

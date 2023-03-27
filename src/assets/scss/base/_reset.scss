@@ -6,7 +6,6 @@
 
 body {
     background-color: $bestag;
-    height: 5000px;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -16,7 +15,7 @@ ul,li,a {
     padding: 0;
 }
 
-h4,h5 {
+h4,h5,p {
     margin: 0;
 }
 
@@ -30,5 +29,15 @@ a {
 
     &:hover {
         color: $white;
+    }
+}
+
+button {
+    border: none;
+}
+
+@media screen and (max-width: 778px) {
+    .container {
+        width: 95%;
     }
 }
