@@ -23,6 +23,7 @@
 
         .details {
             width: 100%;
+            position: relative;
 
             h3 {
                 font-size: 17px;
@@ -42,6 +43,12 @@
                 background: none;
                 color: $dark-blue;
                 font-weight: bold;
+            }
+
+            .add {
+                position: absolute;
+                bottom: 0;
+                right: 0;
             }
         }
     }

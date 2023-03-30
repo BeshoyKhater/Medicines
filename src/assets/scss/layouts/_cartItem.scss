@@ -3,6 +3,7 @@
     color: $white;
 
     .cart_content {
+        position: relative;
         .img {
             img {
                 width: 5rem;
@@ -23,6 +24,16 @@
                 color: $white;
                 border-color: $grey ;
             }
+
+            p {
+                font-size: 13px;
+            }
+        }
+
+        .delete {
+            position: absolute;
+            right: 0;
+            bottom: 5%;
         }
     }
 
@@ -30,6 +41,11 @@
             min-width: 0;
             padding: 6px;
         }
+
+.css-9mgopn-MuiDivider-root {
+    border-color: $white;
+    margin-top: 1.5rem;
+}
 }
 
 .css-1160xiw-MuiPaper-root-MuiDrawer-paper {

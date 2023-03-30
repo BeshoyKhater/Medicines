@@ -5,36 +5,30 @@ import { TiShoppingCart } from "react-icons/ti";
 import { Badge } from '@mui/material';
 import { Link } from "react-router-dom"
 import CartItem from './CartItem';
+import { useSelector } from "react-redux"
+
 
 
 function CartPro() {
+  const products=useSelector((state)=>state.cart)
   const [state, setState] = useState({right:false});
-
   const toggleDrawer = (anchor, open) => (event) => {
     return setState({ state, [anchor]: open });
   };
 
-
   const list = () => (
-    <Box
-      sx={{ width:400 }}
-      role="presentation"
-    >
+    <Box sx={{ width:400 }} role="presentation">
       <>
         <div className="title mt-4 text-center">
-            <h2>Shopping Cart</h2>
+          <h2>Shopping Cart</h2>
         </div>
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
+          {products && products.map((item)=>(
+            <CartItem key={item.id} img={item.cover} price={item.price} name={item.name} item={item} />
+          ))}
         <div className="d-flex justify-content-center">
           <div className="checkOut">
-              <span>Priced To Checkout</span>
-              <span className='price'>$888</span>
+            <span>Priced To Checkout</span>
+            <span className='price'>$98</span>
           </div>
         </div>
       </>
@@ -45,7 +39,7 @@ function CartPro() {
     <>
     <div>
         <React.Fragment>
-          <Badge onClick={toggleDrawer(state, true)} badgeContent={4} color="error">
+          <Badge onClick={toggleDrawer(state, true)} badgeContent={products.length} color="error">
             <Link><TiShoppingCart color="action" /></Link>
           </Badge>
           <SwipeableDrawer
