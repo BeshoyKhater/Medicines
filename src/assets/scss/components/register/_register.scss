@@ -1,0 +1,62 @@
+.register {
+    .backImg {
+        position: relative;
+
+        img {
+            height: 20rem;
+        }
+    }
+
+    .text {
+        position: absolute;
+        top: 50%;
+        left: 60%;
+        transform: translateY(-50%);
+        z-index: 1;
+        text-align: center;
+        color: #fff;
+    }
+
+    .box_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5rem 0;
+
+        .boxItems {
+            width: 50%;
+
+            .reg {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            a {
+                cursor: pointer;
+                &:hover {
+                    color: #1976d4;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 778px) {
+.register {
+        .backImg {
+            img {
+                height: 10rem;
+            }
+        }
+
+        .text {
+            left: 50%;
+        }
+
+        .box_container {
+            .boxItems {
+                width: 80%;
+            }
+        }
+    }
+}

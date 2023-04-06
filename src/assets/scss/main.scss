@@ -12,9 +12,14 @@
 //components
     // home
 @import "components/home/gallery",
+        "components/view/form",
+        "components/view/loading",
         "components/home/order",
         "components/home/category",
-        "components/home/product";
+        "components/home/product",
+        "components/account/account",
+        "components/register/register",
+        "components/login/login";
 
 
 

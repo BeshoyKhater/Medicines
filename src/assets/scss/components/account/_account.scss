@@ -1,0 +1,28 @@
+.account_info {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+        max-width: 60%;
+
+        .left {
+            position: relative;
+
+            .img {
+                img {
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 778px) {
+.account_info {
+        .container {
+            max-width: 80%;
+        }
+    }
+}

@@ -8,9 +8,16 @@
       "default",
       {
         "ignore": [
-          "position: sticky"
+          "position: sticky",
+          "width: fit-content",
+          "min-width: fit-content",
+          "height: fit-content",
+          "backdrop-filter",
+          "inset"
         ]
       }
-    ]
+    ],
+    "detect-css-reflows/composite": "off",
+    "detect-css-reflows/paint": "off"
   }
 }

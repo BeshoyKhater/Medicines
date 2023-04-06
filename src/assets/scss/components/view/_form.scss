@@ -1,0 +1,434 @@
+.input-container {
+    position: relative;
+
+    label {
+        font-size: 12px;
+        line-height: 18px;
+        color: #9598ae;
+    }
+
+    input,
+    select {
+        height: 55px;
+        border-radius: 10px;
+        border: 1px solid #e8e9f3;
+        background-color: transparent;
+
+        &::placeholder {
+            transition: all 2s ease;
+            font-size: 15px;
+            color: #9598ae;
+        }
+
+        &:focus {
+            &::placeholder {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+        }
+    }
+}
+
+.form-control:focus,
+.form-control:focus,
+.form-control:hover {
+    outline: 0;
+    box-shadow: none;
+    border-color: #6ea3eb;
+}
+
+textarea {
+    border: 2px solid #e8e9f3;
+    border-radius: 10px;
+    transition: 0.1s cubic-bezier(0.65, 0.05, 0.36, 1);
+    padding: .375rem .75rem;
+
+    &::placeholder {
+        transition: all 2s ease;
+        font-size: 15px;
+        color: #9598ae;
+    }
+
+    &:focus {
+        border-color: #6ea3eb;
+
+        ~label {
+            top: 0px;
+            left: 10px;
+            color: $main-color;
+        }
+    }
+}
+
+
+.outlined-input {
+    position: relative;
+    margin-bottom: 1.4rem;
+
+    label {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 20px;
+        background-color: $white-color;
+        color: $gray-color;
+        transition: 0.2s cubic-bezier(0.65, 0.05, 0.36, 1);
+        line-height: 1;
+        padding: 0 1px;
+        margin-bottom: 0;
+        cursor: text;
+    }
+
+    .form-control {
+        height: 50px;
+        border: 2px solid #e8e9f3;
+        border-radius: 10px;
+        transition: 0.1s cubic-bezier(0.65, 0.05, 0.36, 1);
+
+        &:not(:placeholder-shown)~label {
+            top: 0px;
+            left: 10px;
+        }
+
+        &:focus {
+            border-color: #6ea3eb;
+
+            ~label {
+                top: 0px;
+                left: 10px;
+                color: $main-color;
+            }
+        }
+
+        &.is-invalid,
+        &:invalid {
+            border-color: $red-color;
+
+            ~label {
+                top: 0px;
+                left: 10px;
+                color: $red-color;
+            }
+
+            &:focus {
+                ~label {
+                    top: 0px;
+                    left: 10px;
+                    color: $red-color;
+                }
+            }
+        }
+    }
+
+    &.light {
+        .react-tel-input {
+            .form-control {
+                color: $dark-color;
+
+                &:focus {
+                    ~.flag-dropdown {
+                        border-bottom: none;
+                    }
+                }
+            }
+
+            .flag-dropdown {
+                border: none;
+                border-radius: 5px 0 0 5px;
+                border-bottom: none;
+
+                .selected-flag {
+                    padding: 0 0 0 10px;
+
+                    &:hover,
+                    &:focus,
+                    &:active,
+                    &.open {
+                        background-color: transparent;
+                        border-radius: 5px 0 0 5px;
+                        border: 1px solid $light-gray-color;
+                        border-right: none;
+                    }
+                }
+            }
+        }
+    }
+
+    &.input-opacity {
+        input.form-control {
+            background-color: rgba($white-color, 0.2);
+            color: $white-color;
+
+            &::placeholder {
+                color: $white-color;
+            }
+        }
+    }
+}
+
+.underlined-input {
+    position: relative;
+    margin-bottom: 1.4rem;
+
+    label {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0px;
+        background-color: transparent;
+        // color: $gray-color;
+        transition: 0.2s cubic-bezier(0.65, 0.05, 0.36, 1);
+        line-height: 1;
+        margin-bottom: 0;
+        cursor: text;
+    }
+
+    .form-control {
+        height: 50px;
+        border: none;
+        border-bottom: 1px solid $sonic-silver-color;
+        color: $gray-color;
+        border-radius: 0;
+        background-color: transparent;
+        transition: 0.1s cubic-bezier(0.65, 0.05, 0.36, 1);
+        padding: 0.375rem 0;
+
+        &:not(:placeholder-shown)~label {
+            top: 0px;
+            left: 0px;
+        }
+
+        &:focus {
+            border-color: $white-color;
+
+            ~label {
+                top: 0px;
+                left: 0px;
+                color: $white-color;
+            }
+        }
+
+        &.is-invalid,
+        &:invalid {
+            border-color: $red-color;
+            outline: 0;
+            box-shadow: none;
+
+            ~label {
+                top: 0px;
+                left: 0px;
+                color: $red-color;
+            }
+
+            &:focus {
+                ~label {
+                    top: 0px;
+                    left: 0px;
+                    color: $red-color;
+                }
+            }
+        }
+    }
+
+    &.dark {
+        .form-control {
+            &:focus {
+                border-color: $dark-color;
+
+                ~label {
+                    color: $dark-color;
+                }
+            }
+        }
+    }
+
+    &.register-input {
+        .form-control {
+            &:focus {
+                border-color: $dark-color;
+
+                ~label {
+                    color: $dark-color;
+                }
+            }
+        }
+    }
+}
+
+.react-tel-input {
+    .form-control {
+        width: 100%;
+        padding-left: 40px !important;
+
+        height: 50px;
+        color: $gray-color;
+
+        &::placeholder {
+            color: $gray-color;
+        }
+
+        &.is-invalid,
+        &:invalid {
+            ~.flag-dropdown {
+                border-bottom: 1px solid $red-color;
+            }
+        }
+
+        &:focus {
+            ~.flag-dropdown {
+                border-bottom: 1px solid $white-color;
+            }
+        }
+    }
+
+    .flag-dropdown {
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: 0px;
+        border-bottom: 1px solid $sonic-silver-color;
+
+        .selected-flag {
+            padding: 0 0 0 10px;
+
+            &:hover,
+            &:focus,
+            &:active,
+            &.open {
+                background-color: $dark-color;
+                border-radius: 0px;
+            }
+        }
+    }
+
+    .country-list {
+        background-color: $white-color;
+
+        .country {
+            font-size: 14px;
+
+            &:hover,
+            &.highlight {
+                background-color: $dark-color;
+                color: $white-color;
+            }
+        }
+    }
+}
+
+.invalid-feedback {
+    color: $red-color;
+}
+
+.form-control {
+    &::placeholder {
+        color: rgba(0, 0, 0, 0.3);
+    }
+}
+
+textarea {
+    height: unset !important;
+}
+
+//
+@media screen and (min-width: 1200px) {
+    .input-container {
+        label {
+            font-size: 13px;
+            line-height: 19.5px;
+        }
+    }
+}
+
+html[dir="rtl"] {
+    .outlined-input {
+        label {
+            left: unset;
+            right: 20px;
+        }
+
+        .form-control {
+            &:not(:placeholder-shown)~label {
+                right: 10px;
+                left: unset;
+            }
+
+            &:focus {
+                ~label {
+                    right: 10px;
+                    left: unset;
+                }
+            }
+
+            &.is-invalid,
+            &:invalid {
+                ~label {
+                    right: 10px;
+                    left: unset;
+                }
+
+                &:focus {
+                    ~label {
+                        right: 10px;
+                        left: unset;
+                    }
+                }
+            }
+        }
+    }
+
+    .underlined-input {
+        label {
+            right: 0px;
+            left: unset;
+        }
+
+        .form-control {
+            &:not(:placeholder-shown)~label {
+                right: 0px;
+                left: unset;
+            }
+
+            &:focus {
+                ~label {
+                    right: 0px;
+                    left: unset;
+                }
+            }
+
+            &.is-invalid,
+            &:invalid {
+                ~label {
+                    right: 0px;
+                    left: unset;
+                }
+
+                &:focus {
+                    ~label {
+                        right: 0px;
+                        left: unset;
+                    }
+                }
+            }
+        }
+    }
+
+    .react-tel-input {
+        .flag-dropdown {
+            left: 0;
+
+            .selected-flag {
+                padding: 0 10px 0 0 !important;
+            }
+        }
+    }
+
+    .ltr-input {
+        input {
+            direction: ltr;
+
+            &::-webkit-input-placeholder {
+                direction: ltr;
+            }
+        }
+    }
+}

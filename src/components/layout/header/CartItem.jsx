@@ -3,50 +3,30 @@ import React, { useEffect, useReducer, useState } from 'react'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import { useDispatch } from "react-redux"
-import { deleteFromCart } from '../../../store/slices/cartSlice'
+import { decrement, deleteFromCart, increment } from '../../../store/slices/cartSlice'
 
 
-const initialState = 1 
-const reducer = (state, action) => {
-    switch (action) {
-        case 'increment':
-          return state + 1
-        case 'decrement':
-          if(state > 1){
-            return state - 1
-          }else {
-            return state
-          }
-        default:
-          return state ;
-    }
-}
 
-function CartItem({key, img, name, price, item}) {
+function CartItem({item}) {
   const diSpatch = useDispatch()
-  const [count, dispatch] = useReducer(reducer,initialState)
-  const [totalPrice,setTotalPrice] = useState(price)
-  useEffect(() => {
-    setTotalPrice(price * count)
-  }, [count, price]);
   return (
-          <div className='card_list' key={key}>
+          <div className='card_list'>
               <div className="cart_content d-flex align-items-center">
                   <div className="img me-3">
-                      <img src={img} alt="img" />
+                      <img src={item.cover} alt="img" />
                   </div>
                   <div className="details">
                       <p>{item.name}</p>
-                      <small>Unit Price ${price}</small>
+                      <small>Unit Price ${item.price}</small>
                       <div className="price d-flex align-items-center">
                           <div className="qty me-md-3 me-2 ">
                             <ButtonGroup variant="contained" color="secondary" aria-label="outlined button group">
-                              <Button onClick={()=>dispatch("increment")}><AiOutlinePlus /></Button>
-                              <Button disabled>{count}</Button>
-                              <Button onClick={()=>dispatch("decrement")}><AiOutlineMinus /></Button>
+                              <Button onClick={()=>diSpatch(increment(item.id))}><AiOutlinePlus /></Button>
+                              <Button disabled>{item.qty}</Button>
+                              <Button onClick={()=>diSpatch(decrement(item.id))}><AiOutlineMinus /></Button>
                             </ButtonGroup>
                           </div>
-                          <div className="price_title">${totalPrice.toFixed(2)}</div>
+                          <div className="price_title">${(item.price * item.qty).toFixed(2) }</div>
                       </div>
                   </div>
                   <Button className='delete' variant="contained" color="error" onClick={()=>diSpatch(deleteFromCart(item))}><RiDeleteBin5Line /></Button>
