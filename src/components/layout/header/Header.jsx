@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom'
 import User from './User';
 import CartPro from './CartPro';
 import { AiOutlineSearch } from "react-icons/ai"
+import { useSelector } from 'react-redux';
 
 function Header() {
       window.addEventListener("scroll",function(){
         this.scrollTo({behavior: "smooth"})
         const nav=this.document.querySelector("nav")
-        nav.classList.toggle("active",this.window.scrollY > 100)
+        if(nav) {
+          nav.classList.toggle("active",this.window.scrollY >  100)
+        }
     })
   return (
     <nav>

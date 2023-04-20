@@ -1,9 +1,13 @@
 import React from 'react';
-import { Route, Outlet } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom';
 import Footer from '../components/layout/footer/Footer';
 import Header from '../components/layout/header/Header';
 
-function PublicLayout() {
+function PublicLayout({secret}) {
+   const isAuthenticated = localStorage.getItem("LoginUser") === "true";
+  if(secret && !isAuthenticated){
+    return <Navigate to="/login" replace/>
+  } else{
   return (
     <>
       <Header />
@@ -13,6 +17,8 @@ function PublicLayout() {
       <Footer />
     </>
   );
+  }
+
 }
 
 export default PublicLayout;

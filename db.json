@@ -220,31 +220,10 @@
   "users": [
     {
       "email": "dsds@gmail.com",
-      "user_name": "besho",
-      "password": "9999",
-      "confirm_password": "9999",
+      "user_name": "Beshoy",
+      "password": "1234",
+      "confirm_password": "1234",
       "id": 1
-    },
-    {
-      "email": "dsds@gmail.com",
-      "user_name": "besho2",
-      "password": "1212",
-      "confirm_password": "1212",
-      "id": 2
-    },
-    {
-      "email": "cto@makanat.com",
-      "user_name": "klj",
-      "password": "98",
-      "confirm_password": "98",
-      "id": 3
-    },
-    {
-      "email": "dsds@gmail.com",
-      "user_name": "ljlkj",
-      "password": "9999",
-      "confirm_password": "9999",
-      "id": 4
     }
   ]
 }

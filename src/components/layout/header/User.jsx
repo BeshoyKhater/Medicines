@@ -5,7 +5,7 @@ import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { IoSettingsOutline } from "react-icons/io5"
 import { BsBagCheck } from "react-icons/bs"
 import { AiOutlineHeart } from "react-icons/ai"
@@ -14,6 +14,8 @@ import { BiLogOut } from "react-icons/bi"
 import Divider from '@mui/material/Divider';
 
 function User() {
+  const userName = localStorage.getItem("userName")
+  const navigate = useNavigate()
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -22,6 +24,10 @@ function User() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const handleLog = () => {
+    localStorage.setItem("LoginUser",false)
+    navigate("/login")
+  }
   return (
     <>
           <Box sx={{ flexGrow: 0 }} className="user">
@@ -54,7 +60,7 @@ function User() {
                             <img src="https://cdn-icons-png.flaticon.com/512/2202/2202112.png" alt="" />
                           </div>
                           <div className="text">
-                              <h5>Eden Smith</h5>
+                              <h5>{userName}</h5>
                               <label htmlFor="">Los Angeles,CA</label>
                           </div>
                         </div>
@@ -62,7 +68,7 @@ function User() {
                     </Box>
                   </MenuItem>
                   <Divider />
-                  <MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
                     <Box textAlign="center">
                       <Link to="/account">
                         <div className="box d-flex justify-content-between align-items-center">
@@ -73,7 +79,7 @@ function User() {
                     </Box>
                   </MenuItem>
                   <Divider />
-                  <MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
                     <Box textAlign="center">
                       <Link to="/">
                         <div className="box d-flex justify-content-between">
@@ -84,7 +90,7 @@ function User() {
                     </Box>
                   </MenuItem>
                   <Divider />
-                  <MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
                     <Box textAlign="center">
                       <Link to="/">
                         <div className="box d-flex justify-content-between align-items-center">
@@ -95,7 +101,7 @@ function User() {
                     </Box>
                   </MenuItem>
                   <Divider />
-                  <MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
                     <Box textAlign="center">
                       <Link to="/account">
                         <div className="box d-flex justify-content-between align-items-center">
@@ -106,14 +112,14 @@ function User() {
                     </Box>
                   </MenuItem>
                   <Divider />
-                  <MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu}>
                     <Box textAlign="center">
-                      <Link to="/login">
+                      <button onClick={handleLog}>
                         <div className="box d-flex justify-content-between align-items-center">
                           <BiLogOut className="icon me-4" />
                           <h5>Log Out</h5>
                         </div>
-                      </Link>
+                      </button>
                     </Box>
                 </MenuItem>
             </Menu>

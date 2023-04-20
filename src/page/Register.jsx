@@ -1,74 +1,43 @@
-import { Alert, AlertTitle, Button, Link } from '@mui/material'
+import { Alert, AlertTitle, Button } from '@mui/material'
 import React, { useState } from 'react'
-import { Form, FormLabel } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import back from "../assets/image/my-account.jpg"
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { insertUser } from '../store/slices/postUserSlice';
 import schemaRegister from "./schemaRegister"
 import { yupResolver } from '@hookform/resolvers/yup';
-import Loading from '../components/Loading';
 import { useEffect } from 'react';
-import { getUsers } from '../store/slices/getUsersSlice';
-import { useNavigate } from 'react-router-dom';
+import  { getUsers } from '../store/slices/getUsersSlice';
+import { useNavigate, Link } from 'react-router-dom';
 import InputField from '../components/input';
 
-//  setLoading(true);
-//     const userId = localStorage.getItem('UserId');
-//     data.createdBy = userId;
-//     data.RegionId = selectRegion?.Id;
-//     data.IndustryId = selectIndustries?.Id;
-//     /// //////// create offer function
-//     if (selectClientYMC) {
-//       data.clientId = selectClientYMC?.Id;
-//       dispatch(cretePriceOffer({ userId }, data)).then((res) => {
-//         setLoading(false);
-//         navigate(`/offerDetails/${res.Data}`);
-//       }).catch((error) => {
-//         setLoading(false);
-//         toast.error('Something went wrong');
-//       });
-//     } else {
-//       data.AssignedUserId = userId;
-
-//       dispatch(creteClient({ userId }, data)).then((resClient) => {
-//         data.clientId = resClient.Data;
-//         dispatch(cretePriceOffer({ userId }, data)).then((res) => {
-//           setLoading(false);
-//           stetClientId(resClient.Data);
-//           setOfferId(res.Data);
-//         }).catch((error) => {
-//           setLoading(false);
-//           toast.error('Something went wrong');
-//         });
-//       }).catch((error) => {
-//         setLoading(false);
-//         toast.error('Something went wrong');
-//       });
-//     }
 function Register() {
-  const [loading, setLoading] = useState(false)
-  const dispatch=useDispatch()
+  const dataUsers = useSelector((state)=>state.users)
+  const dispatch = useDispatch()
   const navigate = useNavigate();
+  const [alert,setAlert] =useState(false)
+  useEffect(() => { 
+    dispatch(getUsers())
+ },[dispatch]);
   const {
     reset, register, handleSubmit, setError, watch, formState: { errors },
   } = useForm({ mode: 'onChange', resolver: yupResolver(schemaRegister)});
 
   const onSubmit = (data) => {
-      setLoading(true);
+    if (dataUsers.length > 0) {
+      dataUsers.map((item) =>{
+        if(item.email === data.email){
+            setAlert(true)
+        } else {
+          dispatch(insertUser(data))
+          navigate('/login');
+        }
+      })
+    } else {
       dispatch(insertUser(data))
       navigate('/login');
-  // dataUsers?.map((item)=>{
-  //   if(item.user_name !== data.user_name || item.email !== data.email){
-  //     setLoading(false);
-  //   } else {
-  //       setLoading(false);
-  //       <Alert severity="error">
-  //                 <AlertTitle>Error</AlertTitle>
-  //                 This name already exists — <strong>check it out!</strong>
-  //       </Alert>
-  //   }
-  // })
+    }
   };
   return (
         <section className="register">
@@ -79,6 +48,9 @@ function Register() {
                         <h2>My ACcount</h2>
                     </div>
                 </div>
+                    {alert&& 
+                      <Alert severity="error">This name already exists — check it out!</Alert>
+                    }
 
               <div className="box_container">
                 <div className="boxItems">
@@ -86,7 +58,7 @@ function Register() {
                     <label className="mb-2">Email Address:</label>
                     <InputField 
                       errors={errors}
-                      type="email"
+                      type="text"
                       placeholder='Enter your email'
                       name="email"
                       {...register('email')}
@@ -122,7 +94,6 @@ function Register() {
                   </div>
                 </div>
               </div>
-              {loading && <Loading />}
         </section>
   )
 }

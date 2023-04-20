@@ -1,4 +1,4 @@
-import { Button, Link } from '@mui/material'
+import { Alert, AlertTitle, Button } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { Form } from 'react-bootstrap'
 import { useForm } from 'react-hook-form';
@@ -6,21 +6,38 @@ import schemaLogin from "./schemaLogin"
 import { yupResolver } from '@hookform/resolvers/yup';
 import Loading from '../components/Loading';
 import InputField from '../components/input';
+import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../store/slices/getUsersSlice';
 
 function Login() {
+  const dataUsers = useSelector((state)=>state.users)
+  const navigate= useNavigate()
+  const dispatch = useDispatch()
   const {
     reset, register, handleSubmit, setError, formState: { errors },
   } = useForm({ mode: 'onChange', resolver: yupResolver(schemaLogin)});
   const [loading, setLoading] = useState(false)
-  const [login, setLogin] = useState(false)
+  const [alert,setAlert] =useState(false)
 
-    useEffect(() => {
-        localStorage.setItem("LoginUser", login)
-    }, [login])
+  useEffect(() => {
+    dispatch(getUsers())
+ },[dispatch]);
   const onSubmit = (data) => {
-    setLoading(true);
-    setLogin(true)
-    console.log(data);
+    if (dataUsers.length > 0) {
+        dataUsers?.map((item) =>{
+        if(item.user_name === data.userName && item.password === data.paSsword){
+          localStorage.setItem("LoginUser", true)
+          localStorage.setItem("userId",item.id)
+          localStorage.setItem("userName",data.userName)
+          navigate("/")
+        } else {
+          setAlert(true)
+        }
+      })
+    } else {
+      setAlert(true)
+    }
   };
   return (
         <section className="register login">
@@ -32,6 +49,9 @@ function Login() {
                     </div>
                 </div>
 
+              {alert&& 
+                <Alert severity="error">This name already exists — check it out!</Alert>
+              }
               <div className="box_container">
                 <div className="boxItems">
                   <Form onSubmit={handleSubmit(onSubmit)}>
@@ -50,7 +70,7 @@ function Login() {
                       placeholder='Enter your password'
                       name="password"
                       {...register('paSsword')}
-                    />
+                      />
                     <Button type="submit" className='reg mt-3' variant='contained'>Login</Button>
                   </Form>
                   <div className="text-end">

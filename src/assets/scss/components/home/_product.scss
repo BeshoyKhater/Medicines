@@ -1,59 +1,60 @@
 
 .product {
-    .boxItems {
-        padding: 1.5rem;
-        border-radius: 1rem;
-        transition: 0.5s;
-        display: flex;
-
-        &:hover {
-            box-shadow: 0 2px 4px rgba($color: #000000, $alpha: .8);
-            cursor: pointer;
-            transform: translateY(-5px);
-        }
-
-        .img {
-            img {
-                width: 120px;
-                height: 120px;
-                object-fit: cover;
-                margin-right: 20px;
+        .boxItems {
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: 0.5s;
+            display: flex;
+    
+            &:hover {
+                box-shadow: 0 2px 4px rgba($color: #000000, $alpha: .8);
+                cursor: pointer;
+                transform: translateY(-5px);
+            }
+    
+            .img {
+                img {
+                    width: 120px;
+                    height: 120px;
+                    object-fit: cover;
+                    margin-right: 20px;
+                }
+            }
+    
+            .details {
+                width: 100%;
+                position: relative;
+    
+                h3 {
+                    font-size: 17px;
+                    font-weight: bold;
+                    color:$gray ;
+                }
+    
+                p {
+                    margin: 10px 0;
+                    text-transform: uppercase;
+                    color: $gray;
+                    font-size: 12px;
+                }
+    
+                button {
+                    font-size: 30px;
+                    margin-top: 15px;
+                    background: none;
+                    color: $dark-blue;
+                    font-weight: bold;
+                }
+    
+                .add {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                }
+    
+                .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+                    min-width: fit-content;
+                }
             }
         }
-
-        .details {
-            width: 100%;
-            position: relative;
-
-            h3 {
-                font-size: 17px;
-                font-weight: bold;
-            }
-
-            p {
-                margin: 10px 0;
-                text-transform: uppercase;
-                color: $gray;
-                font-size: 12px;
-            }
-
-            button {
-                font-size: 30px;
-                margin-top: 15px;
-                background: none;
-                color: $dark-blue;
-                font-weight: bold;
-            }
-
-            .add {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-            }
-
-            .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
-                min-width: fit-content;
-            }
-        }
-    }
 }

@@ -4,13 +4,6 @@ nav {
     box-shadow: 0 2px 4px rgba(0, 0, 0 ,.5);
     z-index: 999;
 
-    &.active {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-    }
-
     .logo {
         a {
             font-size: 1.5rem;
@@ -44,7 +37,12 @@ nav {
     }
 }
 
-
+    .active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
 @media screen and (max-width: 778px) {
 nav {
         .search {

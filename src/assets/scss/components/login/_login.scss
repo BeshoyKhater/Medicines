@@ -1,0 +1,12 @@
+.login , .register {
+    .boxItems {
+        a {
+            color: $dark-blue;
+
+            &:hover {
+                color: $dark-blue;
+                text-decoration: underline;
+            }
+        }
+    }
+}

@@ -1,24 +1,35 @@
-import { Button, TextField } from '@mui/material'
+import { Button } from '@mui/material'
+import axios from 'axios';
 import React, { useEffect } from 'react'
 import { Form, Row } from 'react-bootstrap'
 import { useForm } from 'react-hook-form';
-import image from "../assets/image/input.png"
+import { useDispatch } from 'react-redux';
+import image from "../assets/image/person.png"
+import InputField from '../components/input';
+
+
 
 function Account() {
+  const dispatch = useDispatch()
   const {
     reset, register, handleSubmit, setError, formState: { errors },
   } = useForm({ mode: 'onChange'});
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(data)
   };
 
   useEffect(() => {
-    reset({
-      user_name: "Beshoy",
-      email: "besho@22.com",
-      password: "k3213jl3"
-    })
+  const userId = localStorage.getItem("userId")
+    axios
+    .get(`http://localhost:4000/users/${userId}`)
+    .then(data => reset({
+          user_name: data.data.user_name,
+          email: data.data.email,
+          password: data.data.password
+        }))
+    .catch(error => console.log(error));
   }, [reset]);
+
   return (
       <section className="account_info">
         <div className="container boxItems">
@@ -34,42 +45,30 @@ function Account() {
               </div>
               <div className="col-md-8 col-12">
                 <div className="right">
-                  <TextField 
-                  label="UserName" 
-                  variant="outlined"
-                  fullWidth
-                  errors={errors}
-                  type="text"
-                  required
-                  margin="normal"
-                  placeholder='Enter your name'
-                  name="user name"
-                  {...register('user_name')}
-                  />
-                  <TextField 
-                  label="Email" 
-                  variant="outlined"
-                  fullWidth
-                  errors={errors}
-                  type="text"
-                  required
-                  margin="normal"
-                  placeholder='Enter your email'
-                  name="email"
-                  {...register('email')}
-                  />
-                  <TextField 
-                  label="Password" 
-                  variant="outlined"
-                  fullWidth
-                  errors={errors}
-                  type="password"
-                  required
-                  margin="normal"
-                  placeholder='Enter your password'
-                  name="password"
-                  {...register('password')}
-                  />
+                    <label className="mb-2">User Name:</label>
+                    <InputField 
+                      errors={errors}
+                      type="text"
+                      placeholder='Enter your name'
+                      name="user name"
+                      {...register('user_name')}
+                    />
+                    <label className="mb-2">Email:</label>
+                    <InputField 
+                      errors={errors}
+                      type="email"
+                      placeholder='Enter your email'
+                      name="user email"
+                      {...register('email')}
+                    />
+                    <label className="mb-2">Password:</label>
+                    <InputField 
+                      errors={errors}
+                      type="password"
+                      placeholder='Enter your password'
+                      name="Password"
+                      {...register('password')}
+                    />
                   <div className="text-end mt-5">
                     <Button variant="contained" type="submit">Update</Button>
                   </div>
