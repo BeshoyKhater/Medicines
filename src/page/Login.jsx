@@ -50,7 +50,7 @@ function Login() {
                 </div>
 
               {alert&& 
-                <Alert severity="error">This name already exists — check it out!</Alert>
+                <Alert severity="error">Incorrect email or password</Alert>
               }
               <div className="box_container">
                 <div className="boxItems">

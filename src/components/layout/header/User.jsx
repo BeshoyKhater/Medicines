@@ -103,7 +103,7 @@ function User() {
                   <Divider />
                   <MenuItem onClick={handleCloseUserMenu}>
                     <Box textAlign="center">
-                      <Link to="/account">
+                      <Link to="/">
                         <div className="box d-flex justify-content-between align-items-center">
                           <MdHelpOutline className="icon me-4" />
                           <h5>Help</h5>

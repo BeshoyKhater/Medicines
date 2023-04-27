@@ -34,7 +34,6 @@ export const ViewProduct = () => {
                 </div>
                 <div className="col-lg-8 col-12">
                     <div className="details">
-                        <h3>Id: <small>{data?.data.id}</small></h3>
                         <h3>Name: <small>{data?.data.name}</small></h3>
                         <h3>Category: <small>{data?.data.category}</small></h3>
                         <h3>Description: <small>{data?.data.desc}</small></h3>

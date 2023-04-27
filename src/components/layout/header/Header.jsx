@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import User from './User';
 import CartPro from './CartPro';
 import { AiOutlineSearch } from "react-icons/ai"
-import { useSelector } from 'react-redux';
 
 function Header() {
       window.addEventListener("scroll",function(){

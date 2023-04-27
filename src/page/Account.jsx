@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { Form, Row } from 'react-bootstrap'
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import image from "../assets/image/person.png"
+import image from "../assets/image/man.jpg"
 import InputField from '../components/input';
 
 
@@ -48,6 +48,7 @@ function Account() {
                     <label className="mb-2">User Name:</label>
                     <InputField 
                       errors={errors}
+                      disabled
                       type="text"
                       placeholder='Enter your name'
                       name="user name"
@@ -56,6 +57,7 @@ function Account() {
                     <label className="mb-2">Email:</label>
                     <InputField 
                       errors={errors}
+                      disabled
                       type="email"
                       placeholder='Enter your email'
                       name="user email"
@@ -64,14 +66,12 @@ function Account() {
                     <label className="mb-2">Password:</label>
                     <InputField 
                       errors={errors}
+                      disabled
                       type="password"
                       placeholder='Enter your password'
                       name="Password"
                       {...register('password')}
-                    />
-                  <div className="text-end mt-5">
-                    <Button variant="contained" type="submit">Update</Button>
-                  </div>
+                    />  
                 </div>
               </div>
             </Row>

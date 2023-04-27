@@ -3,11 +3,11 @@ import * as yup from 'yup';
 
 const schemaRegister = yup
   .object({
-    email: yup.string().required(() =>('auth.required')),
-    user_name: yup.string().required(() => ('auth.required')),
-    password: yup.string().required(() => ('auth.required')),
-    confirm_password: yup.string().required(() => ('auth.required'))
-    .oneOf([yup.ref('password')],() => ('auth.passwordMatch') ),
+    email: yup.string().required(() =>('This field is required')),
+    user_name: yup.string().required(() => ('This field is required')),
+    password: yup.string().required(() => ('This field is required')),
+    confirm_password: yup.string().required(() => ('This field is required'))
+    .oneOf([yup.ref('password')],() => ('Password does not match') ),
   })
   .required();
 

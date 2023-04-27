@@ -3,8 +3,8 @@ import * as yup from 'yup';
 
 const schemaLogin = yup
   .object({
-    userName: yup.string().required(() => ('auth.required')),
-    paSsword: yup.string().required(() => ('auth.required')),
+    userName: yup.string().required(() => ('This field is required')),
+    paSsword: yup.string().required(() => ('This field is required')),
   })
   .required();
 
